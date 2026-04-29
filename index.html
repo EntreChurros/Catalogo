@@ -287,6 +287,24 @@
     }
 }
 
+         /* AJUSTE ESPECÍFICO PARA EL MAPA EN PC */
+@media (min-width: 1024px) {
+    .mapa {
+        max-width: 500px; /* Evita que el mapa se expanda demasiado en pantallas grandes */
+        height: auto;
+        border-radius: 20px;
+        margin: 20px auto;
+        display: block;
+        transition: transform 0.3s ease;
+    }
+
+    .mapa:hover {
+        transform: scale(1.02); /* Pequeño efecto visual al pasar el mouse */
+        box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    }
+}
+
+
 
     </style>
 </head>
