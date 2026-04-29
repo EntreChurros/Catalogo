@@ -234,6 +234,33 @@
             background: #0a0a0a;
             border-top: 1px solid var(--cafe-oscuro);
         }
+
+         /* Ajuste para que las imágenes no se deformen en PC */
+.carro-section img, 
+.logo-section img, 
+.hero-content img.mapa {
+    width: 100%;
+    max-width: 600px; /* Limita el ancho máximo para que no se vea gigante en PC */
+    height: auto; /* Mantiene la proporción original */
+    display: block;
+    margin: 0 auto; /* Centra la imagen */
+    object-fit: contain; /* Asegura que la imagen quepa dentro del marco sin cortarse */
+}
+
+/* Ajuste específico para el Hero (imagen superior) */
+.hero {
+    min-height: 40vh; /* Reduce un poco el alto en PC para que no ocupe toda la pantalla */
+    background-attachment: fixed; /* Le da un efecto de movimiento elegante al hacer scroll en PC */
+}
+
+/* Ajuste para las tarjetas de productos en PC */
+@media (min-width: 1024px) {
+    .grid-productos {
+        grid-template-columns: repeat(3, 1fr); /* Muestra 3 productos por fila en lugar de estirarlos */
+        gap: 30px;
+    }
+}
+
     </style>
 </head>
 <body>
