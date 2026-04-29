@@ -261,6 +261,33 @@
     }
 }
 
+         /* AJUSTE PARA CENTRAR PRODUCTOS SOLITARIOS EN PC */
+@media (min-width: 1024px) {
+    .grid-productos {
+        /* Cambiamos a 3 columnas fijas para mantener el tamaño */
+        grid-template-columns: repeat(3, 1fr); 
+        gap: 30px;
+        /* Esto asegura que si hay menos de 3, se alineen mejor */
+        justify-content: center; 
+    }
+
+    /* Si una sección tiene solo 1 o 2 productos, los centramos */
+    .grid-productos:has(> :last-child:nth-child(1)),
+    .grid-productos:has(> :last-child:nth-child(2)) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Ajuste de ancho para productos dentro de secciones pequeñas */
+    .grid-productos:has(> :last-child:nth-child(1)) .producto-card,
+    .grid-productos:has(> :last-child:nth-child(2)) .producto-card {
+        max-width: 350px;
+        width: 100%;
+    }
+}
+
+
     </style>
 </head>
 <body>
