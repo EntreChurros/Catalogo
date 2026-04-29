@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entre Churros Talca | Menú Premium</title>
+    <style>
+        :root {
+            --negro-pizarra: #121212;
+            --negro-card: #1e1e1e;
+            --cafe-oscuro: #3d2b1f;
+            --naranja-formal: #e67e22;
+            --dorado-mate: #b8860b;
+            --blanco-hueso: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: var(--negro-pizarra);
+            color: var(--blanco-hueso);
+            overflow-x: hidden;
+        }
+
+        /* 1. SECCIÓN CARRO (HERO) */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('1000132398.png');
+            background-size: cover;
+            background-position: center;
+            min-height: 55vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            border-bottom: 3px solid var(--cafe-oscuro);
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2rem, 10vw, 4.5rem);
+            color: var(--naranja-formal);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.9);
+            width: 100%;
+            max-width: 95vw;
+            line-height: 1.1;
+        }
+
+        /* 2. LOGO PRINCIPAL */
+        .logo-section {
+            text-align: center;
+            padding: 30px 15px;
+            background-color: var(--negro-card);
+        }
+        
+          .carro-section img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .logo-section img {
+            max-width: 180px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 15px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 40px 0 25px;
+        }
+
+        .section-title h2 {
+            font-size: 1.8rem;
+            color: var(--dorado-mate);
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--cafe-oscuro);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        /* Grid de Productos */
+        .grid-productos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .producto-card {
+            background: var(--negro-card);
+            border: 1px solid var(--cafe-oscuro);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .producto-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--dorado-mate);
+        }
+
+        .producto-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .producto-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .precio {
+            display: block;
+            font-size: 1.5rem;
+            color: var(--dorado-mate);
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .btn-pedir {
+            display: block;
+            background-color: var(--naranja-formal);
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* MODAL DE IMAGEN */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 3000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.95);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 80%;
+            border: 2px solid var(--dorado-mate);
+            border-radius: 10px;
+            object-fit: contain;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 50px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Mapa */
+        .mapa-contenedor {
+            width: 100%;
+            height: 350px;
+            border-radius: 15px;
+            overflow: hidden;
+            filter: invert(90%) hue-rotate(180deg);
+            margin-top: 20px;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        footer {
+            padding: 40px 15px;
+            text-align: center;
+            background: #0a0a0a;
+            border-top: 1px solid var(--cafe-oscuro);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Entre Churros</h1>
+        </div>
+    </header>
+     <section class="carro-section">
+        <img src="carro.png" alt="carro Entre Churros">
+    </section>
+
+    <section class="logo-section">
+        <img src="1000132404.png" alt="Logo Entre Churros">
+    </section>
+
+    <div id="imageModal" class="modal">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="imgFull">
+    </div>
+
+    <div class="container">
+        
+        <div class="section-title"><h2>Nuestros Churros</h2></div>
+        <div class="grid-productos">
+            <div class="producto-card">
+                <img src="1000132399.png" class="producto-img" onclick="openModal(this.src)">
+                <div class="producto-info">
+                    <h3>Churros Tradicionales</h3>
+                    <span class="precio">$4.000 Docena / $2.500 Media</span>
+                    <a href="https://wa.me/56963212660?text=Hola!%20Quiero%20churros%20tradicionales" class="btn-pedir">Pedir ahora</a>
+                </div>
+            </div>
+            <div class="producto-card">
+                <img src="1000129565.png" class="producto-img" onclick="openModal(this.src)">
+                <div class="producto-info">
+                    <h3>Relleno con Manjar</h3>
+                    <span class="precio">$1.000 c/u</span>
+                    <a href="https://wa.me/56963212660?text=Hola!%20Quiero%20un%20churro%20con%20manjar" class="btn-pedir">Pedir ahora</a>
+                </div>
+            </div>
+            <div class="producto-card">
+                <img src="1000129566.png" class="producto-img" onclick="openModal(this.src)">
+                <div class="producto-info">
+                    <h3>Relleno con Nutella</h3>
+                    <span class="precio">$2.000 c/u</span>
+                    <a href="https://wa.me/56963212660?text=Hola!%20Quiero%20un%20churro%20con%20nutella" class="btn-pedir">Pedir ahora</a>
+                </div>
+            </div>
+            <div class="producto-card">
+                <img src="1000129564.png" class="producto-img" onclick="openModal(this.src)">
+                <div class="producto-info">
+                    <h3>Relleno Crema Pastelera</h3>
+                    <span class="precio">$1.000 c/u</span>
+                    <a href="https://wa.me/56963212660?text=Hola!%20Quiero%20un%20churro%20con%20crema%20pastelera" class="btn-pedir">Pedir ahora</a>
+                </div>
+            </div>
+            <div class="producto-card">
+                <img src="1000129572.png" class="producto-img" onclick="openModal(this.src)">
+                <div class="producto-info">
+                    <h3>Bañados en Chocolate</h3>
+                    <span class="precio">+$500 sobre el relleno</span>
+                    <a href="https://wa.me/56963212660?text=Hola!%20Quiero%20un%20churro%20bañado%20en%20chocolate" class="btn-pedir">Pedir ahora</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title"><h2>Hand Rolls</h2></div>
+        <div class="grid-productos">
+            <div class="producto-card">
+                <img src="1000132400.png" class="producto-img" onclick="openModal(this.src)">
+                <div class="producto-info">
+                    <h3>Hand Rolls (Pollo/Palta/Queso)</h3>
+                   <h3>Hand Rolls (Pollo/cebollin/Queso)</h3>
+                    <span class="precio">$3.000 | 2x$5.000</span>
+                    <a href="https://wa.me/56963212660?text=Hola!%20Quiero%20oferta%202x5000%20Hand%20Rolls" class="btn-pedir">Pedir Oferta</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title"><h2>Papas Fritas</h2></div>
+        <div class="grid-productos">
+            <div class="producto-card">
+                <img src="1000132401.png" class="producto-img" onclick="openModal(this.src)">
+                <div class="producto-info">
+                    <h3>Porción de Papas Fritas</h3>
+                    <span class="precio">$1.500</span>
+                    <a href="https://wa.me/56963212660?text=Hola!%20Quiero%20unas%20papas%20fritas" class="btn-pedir">Pedir ahora</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title"><h2>Cafetería</h2></div>
+        <div class="grid-productos">
+            <div class="producto-card">
+                <img src="1000132405.png" class="producto-img" onclick="openModal(this.src)">
+                <div class="producto-info">
+                    <h3>Café de Máquina</h3>
+                    <span class="precio">$2.000</span>
+                    <a href="https://wa.me/56963212660?text=Hola!%20Quiero%20un%20café%20de%20máquina" class="btn-pedir">Pedir ahora</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <section class="container">
+        <div class="section-title">
+            <h2>Ubicación</h2>
+            <p>3 Sur esquina 14 Oriente, Plaza Arturo Prat, Talca</p>
+        </div>
+        <div class="mapa-contenedor">
+            <iframe 
+                src="http://googleusercontent.com/maps.google.com/9" 
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe>
+        </div>
+    </section>
+
+    <a href="https://wa.me/56963212660" class="whatsapp-float" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="30">
+    </a>
+
+    <footer>
+        <p>© 2026 Entre Churros Talca</p>
+    </footer>
+
+    <script>
+        function openModal(src) {
+            document.getElementById("imgFull").src = src;
+            document.getElementById("imageModal").style.display = "flex";
+            document.body.style.overflow = "hidden";
+        }
+        function closeModal() {
+            document.getElementById("imageModal").style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+        window.onclick = function(event) {
+            let modal = document.getElementById("imageModal");
+            if (event.target == modal) closeModal();
+        }
+    </script>
+
+</body>
+</html>
